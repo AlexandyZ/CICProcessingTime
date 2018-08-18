@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Alex Zhang">
+        <meta name="viewport" content="width=device-width, initial-scal=1, shrink-to-fit=no">
+        <title>Processing Time</title>
+        <style>
+            @media only screen and (max-width:640px)
+            {
+
+            }
+            @media only screen and (max-width:1007px)
+            {
+                
+            }
+            body{
+                font-family:Tahoma, Geneva, sans-serif;
+                margin:0;
+            }
+            h1{
+                background:#002b80;
+                color:#F0F0F0;
+                margin:0;
+                padding:20px;
+            }
+            .top_label{
+                position:relative;
+                float:left;
+                margin:0 20px;
+            }
+            .sub_label{
+                position:relative;
+                float:left;
+                margin:0 10px;
+                height:120px;
+            }
+            h2{
+                position:relative;
+                margin:10px;
+            }
+            h3{
+                margin:0 1px 10px 1px;
+                color:#002b80;
+            }
+            .online{
+                color:red;
+                font-weight:bold;
+                font-size:1.7em;
+            }
+        </style>
+        <script type="text/javascript" src="http://www.cic.gc.ca/js/tools/processing-times/pt-messages.js"></script>
+    </head>
+    <body>
+        <h1>Processing Time</h1>
+        <div class="top_label">
+            <h2 class="category">New Application</h2>
+            <div class="sub_label">
+                <h3>Visitor Visa</h3>
+                <label>In Canada: </label><span class="online" id="nv_in_online"></span>/<span class="pp" id="nv_in_pp"></span> Days<br>
+                <label>Out of Canada: </label><span class="online" id="nv_out"></span> Days
+            </div>
+            <div class="sub_label">
+                <h3>Study Permit</h3>
+                <span class="online" id="nsp"></span> Weeks
+            </div>
+            <div class="sub_label">
+                <h3>Work Permit</h3>
+                <span class="online" id="nwp"></span> Weeks
+            </div>
+            <div class="sub_label">
+                <h3>PR Card</h3>
+                <span class="online" id="npr"></span> Days
+            </div>
+            <div class="sub_label">
+                <h3>Spouse &amp; Common-Law</h3>
+                <label>In Canada: </label><span class="online" id="spouse_in"></span> Months<br>
+                <label>Out of Canada: </label><span class="online" id="spouse_out"></span> Months
+            </div>
+        </div>
+        <div class="top_label">
+            <h2 class="category">Extension</h2>
+            <div class="sub_label">
+                <h3>Visitor Visa</h3>
+                <span class="online" id="ev_online"></span>/<span class="pp" id="ev_pp"></span> Days
+            </div>
+            <div class="sub_label">
+                <h3>Study Permit</h3>
+                <span class="online" id="esp_online"></span>/<span class="pp" id="esp_pp"></span> Days
+            </div>
+            <div class="sub_label">
+                <h3>Work Permit(same employer)</h3>
+                <span class="online" id="ewp1_online"></span>/<span class="pp" id="ewp1_pp"></span> Days
+            </div>
+            <div class="sub_label">
+                <h3>Work Permit(new employer)</h3>
+                <span class="online" id="ewp2_online"></span>/<span class="pp" id="ewp2_pp"></span> Days
+            </div>
+            <div class="sub_label">
+                <h3>PR Card</h3>
+                <span class="online" id="epr"></span> Days
+            </div>
+        </div>
+        <script>
+            document.getElementById("nv_in_online").innerHTML = visitor_inside_canada["online"];
+            document.getElementById("nv_in_pp").innerHTML = visitor_inside_canada["paper"];
+            document.getElementById("nv_out").innerHTML = visitor["CN"];
+            document.getElementById("nsp").innerHTML = study["CN"];
+            document.getElementById("nwp").innerHTML = work["CN"];
+            document.getElementById("npr").innerHTML = pr_card["new_pr"];
+            document.getElementById("spouse_in").innerHTML = family_sponsorship["spouse_can"];
+            document.getElementById("spouse_out").innerHTML = spouse_out["CN"];
+            document.getElementById("ev_online").innerHTML = visitor_extension["online"];
+            document.getElementById("ev_pp").innerHTML = visitor_extension["paper"];
+            document.getElementById("esp_online").innerHTML = study_extension["online"];
+            document.getElementById("esp_pp").innerHTML = study_extension["paper"];
+            document.getElementById("ewp1_online").innerHTML = work_extension_same_employer["online"];
+            document.getElementById("ewp1_pp").innerHTML = work_extension_same_employer["paper"];
+            document.getElementById("ewp2_online").innerHTML = work_extension_new_employer["online"];
+            document.getElementById("ewp2_pp").innerHTML = work_extension_new_employer["paper"];
+            document.getElementById("epr").innerHTML = pr_card["existing_pr"];
+        </script>
+    </body>
+</html>
